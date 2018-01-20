@@ -27,7 +27,7 @@ public class Main {
         Episode ariel = new Episode(8, 1, "Ariel", 43);
         Episode warStories = new Episode(9, 1, "War Stories", 43);
         Episode objectsInSpace = new Episode(10, 1, "Objects in Space", 44);
-        Episode serenity = new Episode(11, 1, "Serenity",86 );
+        Episode serenity = new Episode(11, 1, "Serenity",86);
         Episode heartOfGold = new Episode(12, 1, "Heart of Gold", 42);
         Episode trash = new Episode(13, 1, "Trash", 44);
         Episode theMessage = new Episode(14, 1, "The Message", 44);
