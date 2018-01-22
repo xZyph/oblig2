@@ -72,6 +72,13 @@ public class Series {
         this.episodeList = episodeList;
     }
 
+    /* Overrides */
+
+    @Override
+    public String toString() {
+        return this.getTitle() + " " + this.getSeasonSize() + " Seasons (Tot: " + this.getTotalRuntime() + " min | Avg: " + this.getAvgRuntime() + " min)";
+    }
+
     /* Methods */
 
     public void addEpisode(Episode newEpisode) {
@@ -143,10 +150,6 @@ public class Series {
 
     public void updateAvgRuntime() {
         this.avgRuntime = this.getTotalRuntime() / this.episodeList.size();
-    }
-
-    public String toString() {
-        return this.getTitle() + " " + this.getSeasonSize() + " Seasons (Tot: " + this.getTotalRuntime() + " min | Avg: " + this.getAvgRuntime() + " min)";
     }
 
     public void createSeasons(int amountOfSeasons, int amountOfEpisodes, int startSeason) {

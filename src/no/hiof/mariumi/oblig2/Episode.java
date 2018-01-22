@@ -75,11 +75,14 @@ public class Episode {
         this.playtime = playtime;
     }
 
-    /* Methods */
+    /* Overrides */
 
+    @Override
     public String toString() {
         // Using ternary logic to display SXXEXX correctly.
         // Shoutout to Odd Martin Hansen that pointed out that i didn't need to use this. here.
         return getTitle() + " (S" + (seasonNo < 10 ? "0" + seasonNo : seasonNo) + "E" + (episodeNo < 10 ? "0" + seasonNo : seasonNo) + ") " + getPlaytime() + " min";
     }
 }
+
+    /* Methods */

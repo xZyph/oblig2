@@ -50,6 +50,9 @@ public class Main {
         // Firefly Season 2 - 5
         firefly.createSeasons(4,20,2);
 
+
+        System.out.println(firefly.getReleaseDate());
+
         // Modified toString on each class
         System.out.println("\n=============================================================");
         System.out.println(" Modified toString methods");
