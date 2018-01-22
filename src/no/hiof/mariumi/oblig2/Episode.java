@@ -79,8 +79,7 @@ public class Episode {
 
     public String toString() {
         // Using ternary logic to display SXXEXX correctly.
-        String episode = (this.getEpisodeNo() < 10 ? "0" + this.getEpisodeNo() : Integer.toString(this.getEpisodeNo()));
-        String season = (this.getSeasonNo() < 10 ? "0" + this.getSeasonNo() : Integer.toString(this.getSeasonNo()));
-        return this.getTitle() + " (S" + season + "E" + episode + ") " + this.getPlaytime() + " min";
+        // Shoutout to Odd Martin Hansen that pointed out that i didn't need to use this. here.
+        return getTitle() + " (S" + (seasonNo < 10 ? "0" + seasonNo : seasonNo) + "E" + (episodeNo < 10 ? "0" + seasonNo : seasonNo) + ") " + getPlaytime() + " min";
     }
 }
