@@ -15,17 +15,17 @@ public class Series {
     /* Constructors */
 
     public Series() {
-        this.title = "Default title.";
-        this.description = "Default description";
-        this.releaseDate = LocalDate.now();
-        this.episodeList = new ArrayList<Episode>();
+        setTitle("Default title.");
+        setDescription("Default description");
+        setReleaseDate(LocalDate.now());
+        setEpisodeList(new ArrayList<Episode>());
     }
 
     public Series(String title, String description, LocalDate releaseDate) {
-        this.title = title;
-        this.description = description;
-        this.releaseDate = releaseDate;
-        this.episodeList = new ArrayList<Episode>();
+        setTitle(title);
+        setDescription(description);
+        setReleaseDate(releaseDate);
+        setEpisodeList(new ArrayList<Episode>());
     }
 
     /* Getters */
@@ -76,19 +76,19 @@ public class Series {
 
     @Override
     public String toString() {
-        return this.getTitle() + " " + this.getSeasonSize() + " Seasons (Tot: " + this.getTotalRuntime() + " min | Avg: " + this.getAvgRuntime() + " min)";
+        return getTitle() + " " + getSeasonSize() + " Seasons (Tot: " + getTotalRuntime() + " min | Avg: " + getAvgRuntime() + " min)";
     }
 
     /* Methods */
 
     public void addEpisode(Episode newEpisode) {
-        if(newEpisode.getSeasonNo() > (this.getSeasonSize() + 1)) {
+        if(newEpisode.getSeasonNo() > (getSeasonSize() + 1)) {
             System.out.println();
             System.out.println("ERROR: Cannot skip seasons.");
         }
         else {
-            this.episodeList.add(newEpisode);
-            this.seasonSize = newEpisode.getSeasonNo();
+            episodeList.add(newEpisode);
+            seasonSize = newEpisode.getSeasonNo();
             updateAvgRuntime();
         }
     }
@@ -98,9 +98,9 @@ public class Series {
         System.out.println(" Season " + season);
         System.out.println("=============================================================");
 
-        for(int i = 0; i < this.episodeList.size(); i++) {
-            if(this.episodeList.get(i).getSeasonNo() == season) {
-                System.out.println(" " + this.episodeList.get(i));
+        for(int i = 0; i < episodeList.size(); i++) {
+            if(episodeList.get(i).getSeasonNo() == season) {
+                System.out.println(" " + episodeList.get(i));
             }
         }
 
@@ -108,7 +108,7 @@ public class Series {
     }
 
     public void listAllEpisodes() {
-        for(int i = 1; i <= this.seasonSize; i++) {
+        for(int i = 1; i <= seasonSize; i++) {
             listAllEpisodes(i);
         }
     }
@@ -117,8 +117,8 @@ public class Series {
     public int getTotalRuntime() {
         int totalRuntime = 0;
 
-        for(int i = 0; i < this.episodeList.size(); i++) {
-            totalRuntime += this.episodeList.get(i).getPlaytime();
+        for(int i = 0; i < episodeList.size(); i++) {
+            totalRuntime += episodeList.get(i).getPlaytime();
         }
 
         return  totalRuntime;
@@ -129,8 +129,8 @@ public class Series {
     public String getTotalRuntime(String mode) {
         int totalRuntime = 0;
 
-        for(int i = 0; i < this.episodeList.size(); i++) {
-            totalRuntime += this.episodeList.get(i).getPlaytime();
+        for(int i = 0; i < episodeList.size(); i++) {
+            totalRuntime += episodeList.get(i).getPlaytime();
         }
 
         switch(mode) {
@@ -148,14 +148,14 @@ public class Series {
         }
     }
 
-    public void updateAvgRuntime() {
-        this.avgRuntime = this.getTotalRuntime() / this.episodeList.size();
+    private void updateAvgRuntime() {
+        avgRuntime = getTotalRuntime() / episodeList.size();
     }
 
     public void createSeasons(int amountOfSeasons, int amountOfEpisodes, int startSeason) {
         for(int s = startSeason; s < (amountOfSeasons + startSeason); s++) {
             for (int e = 1; e < (amountOfEpisodes + 1); e++) {
-                this.addEpisode(new Episode(s, e));
+                addEpisode(new Episode(s, e));
             }
         }
     }

@@ -12,31 +12,31 @@ public class Episode {
     /* Constructors */
 
     public Episode() {
-        this.episodeNo = 1;
-        this.seasonNo = 1;
-        this.title = "N/A";
-        this.playtime = new Random().nextInt((30 - 20) + 1) + 20;
+        setEpisodeNo(1);
+        setSeasonNo(1);
+        setTitle("N/A");
+        setPlaytime(new Random().nextInt((30 - 20) + 1) + 20);
     }
 
     public Episode(int seasonNo) {
-        this.episodeNo = 1;
-        this.seasonNo = seasonNo;
-        this.title = "N/A";
-        this.playtime = new Random().nextInt((30 - 20) + 1) + 20;
+        setEpisodeNo(1);
+        setSeasonNo(seasonNo);
+        setTitle("N/A");
+        setPlaytime(new Random().nextInt((30 - 20) + 1) + 20);
     }
 
     public Episode(int seasonNo, int episodeNo) {
-        this.episodeNo = episodeNo;
-        this.seasonNo = seasonNo;
-        this.title = "N/A";
-        this.playtime = new Random().nextInt((30 - 20) + 1) + 20;
+        setEpisodeNo(episodeNo);
+        setSeasonNo(seasonNo);
+        setTitle("N/A");
+        setPlaytime(new Random().nextInt((30 - 20) + 1) + 20);
     }
 
     public Episode(int episodeNo, int seasonNo, String title, int playtime) {
-        this.episodeNo = episodeNo;
-        this.seasonNo = seasonNo;
-        this.title = title;
-        this.playtime = playtime;
+        setEpisodeNo(episodeNo);
+        setSeasonNo(seasonNo);
+        setTitle(title);
+        setPlaytime(playtime);
     }
 
     /* Getters */
@@ -80,7 +80,7 @@ public class Episode {
     @Override
     public String toString() {
         // Using ternary logic to display SXXEXX correctly.
-        // Shoutout to Odd Martin Hansen that pointed out that i didn't need to use this. here.
+        // Shoutout to Odd Martin Hansen that pointed out that I didn't need to use this. here.
         return getTitle() + " (S" + (seasonNo < 10 ? "0" + seasonNo : seasonNo) + "E" + (episodeNo < 10 ? "0" + seasonNo : seasonNo) + ") " + getPlaytime() + " min";
     }
 }

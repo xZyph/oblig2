@@ -3,6 +3,9 @@ package no.hiof.mariumi.oblig2;
 /* Imports */
 import java.time.LocalDate;
 
+// TODO
+// - Add exceptions for error handling.
+
 public class Main {
 
     public static void main(String[] args) {
@@ -15,7 +18,7 @@ public class Main {
                 LocalDate.of(2015, 12, 31)
         );
 
-        // Firefly Season 1
+        // Firefly Season 1 - Could have made this shorter, but did it this way to keep it neat and structured.
 
         Episode theTrainJob = new Episode(1, 1, "The Train Job", 42);
         Episode bushwhacked = new Episode(2, 1, "Bushwhacked", 44);
@@ -50,8 +53,8 @@ public class Main {
         // Firefly Season 2 - 5
         firefly.createSeasons(4,20,2);
 
-
-        System.out.println(firefly.getReleaseDate());
+        // Uncomment below to see release date for the series.
+        //      System.out.println(firefly.getReleaseDate());
 
         // Modified toString on each class
         System.out.println("\n=============================================================");
@@ -63,7 +66,7 @@ public class Main {
         System.out.println(" ------------------------------------------------------------\n");
 
         // Listing all episodes - Commented because wall of text
-        // firefly.listAllEpisodes();
+        //      firefly.listAllEpisodes();
 
         // Listing all episodes in a specific season
         firefly.listAllEpisodes(1);
