@@ -1,6 +1,7 @@
 package no.hiof.mariumi.oblig2;
 
 /* Imports */
+
 import java.time.LocalDate;
 
 // TODO
@@ -71,8 +72,12 @@ public class Main {
         // Listing all episodes in a specific season
         firefly.listAllEpisodes(1);
 
-        // Adding an episode from a way newer season than previously stored
-        Episode test = new Episode(7);
-        firefly.addEpisode(test);
+        // Testing errorhandling - Empty constructor tries to create Episode with negative episodeNo.
+        System.out.println("\n=============================================================");
+        System.out.println("Demonstrating error handling");
+        System.out.println("=============================================================");
+        Episode errorTest = new Episode();
+        firefly.addEpisode(new Episode(7));
+        System.out.println("------------------------------------------------------------\n");
     }
 }

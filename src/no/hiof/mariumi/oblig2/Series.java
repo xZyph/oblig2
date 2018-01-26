@@ -82,14 +82,16 @@ public class Series {
     /* Methods */
 
     public void addEpisode(Episode newEpisode) {
-        if(newEpisode.getSeasonNo() > (getSeasonSize() + 1)) {
-            System.out.println();
-            System.out.println("ERROR: Cannot skip seasons.");
-        }
-        else {
+        try {
+            if (newEpisode.getSeasonNo() > (getSeasonSize() + 1)) {
+                throw new Error("Cannot add episode from a season higher than " + (getSeasonSize() + 1));
+            }
             episodeList.add(newEpisode);
             seasonSize = newEpisode.getSeasonNo();
             updateAvgRuntime();
+        }
+        catch (Error e) {
+            System.out.println("ERROR: " + e.getLocalizedMessage());
         }
     }
 
@@ -118,7 +120,7 @@ public class Series {
         int totalRuntime = 0;
 
         for(int i = 0; i < episodeList.size(); i++) {
-            totalRuntime += episodeList.get(i).getPlaytime();
+            totalRuntime += episodeList.get(i).getDuration();
         }
 
         return  totalRuntime;
@@ -130,7 +132,7 @@ public class Series {
         int totalRuntime = 0;
 
         for(int i = 0; i < episodeList.size(); i++) {
-            totalRuntime += episodeList.get(i).getPlaytime();
+            totalRuntime += episodeList.get(i).getDuration();
         }
 
         switch(mode) {
