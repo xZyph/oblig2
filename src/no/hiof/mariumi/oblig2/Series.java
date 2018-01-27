@@ -14,8 +14,8 @@ public class Series {
 
     /* Constructors */
 
-    public Series() {
-        setTitle("Default title.");
+    public Series(String title) {
+        setTitle(title);
         setDescription("Default description");
         setReleaseDate(LocalDate.now());
         setEpisodeList(new ArrayList<Episode>());
@@ -97,7 +97,7 @@ public class Series {
 
     public void listAllEpisodes(int season) {
         System.out.println("=============================================================");
-        System.out.println(" Season " + season);
+        System.out.println(" " + getTitle() + " - Season " + season);
         System.out.println("=============================================================");
 
         for(int i = 0; i < episodeList.size(); i++) {

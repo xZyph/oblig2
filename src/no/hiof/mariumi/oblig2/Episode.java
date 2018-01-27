@@ -15,7 +15,7 @@ public class Episode {
         setEpisodeNo(-1);
         setSeasonNo(1);
         setTitle("N/A");
-        setDuration(new Random().nextInt((30 - 20) + 1) + 20);
+        setDuration(4);
     }
 
     public Episode(int seasonNo) {
@@ -90,7 +90,10 @@ public class Episode {
     // Minimum playtime is set to 5 minutes.
     public void setDuration(int duration) {
         try {
-            if(duration < 5){
+            if(duration < 0){
+                throw new Error("Duration cannot be negative.");
+            }
+            else if(duration < 5){
                 throw new Error("Duration cannot be below 5 minutes.");
             }
             this.duration = duration;
@@ -105,8 +108,8 @@ public class Episode {
     @Override
     public String toString() {
         // Using ternary logic to display SXXEXX correctly.
-        // Shoutout to Odd Martin Hansen that pointed out that I didn't need to use this. here.
-        return getTitle() + " (S" + (seasonNo < 10 ? "0" + seasonNo : seasonNo) + "E" + (episodeNo < 10 ? "0" + seasonNo : seasonNo) + ") " + getDuration() + " min";
+        // Shoutout to Odd Martin Hansen that pointed out that I didn't need to use keywords here.
+        return getTitle() + " (S" + (seasonNo < 10 ? "0" + seasonNo : seasonNo) + "E" + (episodeNo < 10 ? "0" + episodeNo : episodeNo) + ") " + getDuration() + " min";
     }
 }
 

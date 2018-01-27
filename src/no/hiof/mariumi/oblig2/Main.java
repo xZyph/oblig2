@@ -4,9 +4,6 @@ package no.hiof.mariumi.oblig2;
 
 import java.time.LocalDate;
 
-// TODO
-// - Add exceptions for error handling.
-
 public class Main {
 
     public static void main(String[] args) {
@@ -51,8 +48,16 @@ public class Main {
         firefly.addEpisode(trash);
         firefly.addEpisode(theMessage);
 
-        // Firefly Season 2 - 5
+        // Generating Firefly Season 2 - 5
         firefly.createSeasons(4,20,2);
+
+        // Generating Star Trek Season 1 - 5
+        Series starTrek = new Series("Star Trek");
+        starTrek.createSeasons(5, 20, 1);
+
+        // Black Adder Season 1 - 2
+        Series blackAdder = new Series("Black Adder");
+        blackAdder.createSeasons(2, 15, 1);
 
         // Uncomment below to see release date for the series.
         //      System.out.println(firefly.getReleaseDate());
@@ -62,8 +67,12 @@ public class Main {
         System.out.println(" Modified toString methods");
         System.out.println("=============================================================");
         System.out.println(" " + firefly.toString());
+        System.out.println(" " + starTrek.toString());
+        System.out.println(" " + blackAdder.toString());
         System.out.println(" ------------------------------------------------------------");
         System.out.println(" " + theTrainJob.toString());
+        System.out.println(" " + outOfGas.toString());
+        System.out.println(" " + serenity.toString());
         System.out.println(" ------------------------------------------------------------\n");
 
         // Listing all episodes - Commented because wall of text
@@ -72,11 +81,11 @@ public class Main {
         // Listing all episodes in a specific season
         firefly.listAllEpisodes(1);
 
-        // Testing errorhandling - Empty constructor tries to create Episode with negative episodeNo.
+        // Demonstrating errorhandling
         System.out.println("\n=============================================================");
         System.out.println("Demonstrating error handling");
         System.out.println("=============================================================");
-        Episode errorTest = new Episode();
+        Episode emptyConstructorTest = new Episode();
         firefly.addEpisode(new Episode(7));
         System.out.println("------------------------------------------------------------\n");
     }
