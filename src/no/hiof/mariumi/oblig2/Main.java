@@ -1,19 +1,19 @@
 package no.hiof.mariumi.oblig2;
 
-/* Imports */
+/* IMPORTS */
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Main {
 
     public static void main(String[] args) {
-
         // Firefly Series
 
         Series firefly = new Series(
                 "Firefly",
                 "The show explores the lives of a group of people, some of whom fought on the losing side of a civil war...",
-                LocalDate.of(2015, 12, 31)
+                LocalDate.of(2002, 9, 20)
         );
 
         // Firefly Season 1 - Could have made this shorter, but did it this way to keep it neat and structured.
@@ -59,9 +59,6 @@ public class Main {
         Series blackAdder = new Series("Black Adder");
         blackAdder.createSeasons(2, 15, 1);
 
-        // Uncomment below to see release date for the series.
-        //      System.out.println(firefly.getReleaseDate());
-
         // Modified toString on each class
         System.out.println("\n=============================================================");
         System.out.println(" Modified toString methods");
@@ -79,7 +76,7 @@ public class Main {
         //      firefly.listAllEpisodes();
 
         // Listing all episodes in a specific season
-        firefly.listAllEpisodes(1);
+        firefly.listAllEpisodes();
 
         // Demonstrating errorhandling
         System.out.println("\n=============================================================");

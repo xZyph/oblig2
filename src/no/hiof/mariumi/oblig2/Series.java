@@ -1,6 +1,7 @@
 package no.hiof.mariumi.oblig2;
 
-/* Imports */
+/* IMPORTS */
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.time.LocalDate;
 
@@ -12,7 +13,7 @@ public class Series {
     private int avgRuntime;
     private int seasonSize;
 
-    /* Constructors */
+    /* CONSTRUCTORS */
 
     public Series(String title) {
         setTitle(title);
@@ -28,7 +29,7 @@ public class Series {
         setEpisodeList(new ArrayList<Episode>());
     }
 
-    /* Getters */
+    /* GETTERS */
 
     public String getTitle() {
         return title;
@@ -54,7 +55,7 @@ public class Series {
         return seasonSize;
     }
 
-    /* Setters */
+    /* SETTERS */
 
     public void setTitle(String title) {
         this.title = title;
@@ -72,14 +73,14 @@ public class Series {
         this.episodeList = episodeList;
     }
 
-    /* Overrides */
+    /* OVERRIDES */
 
     @Override
     public String toString() {
-        return getTitle() + " " + getSeasonSize() + " Seasons (Tot: " + getTotalRuntime() + " min | Avg: " + getAvgRuntime() + " min)";
+        return getTitle() + " " + getSeasonSize() + " - Seasons (Tot: " + getTotalRuntime() + " min | Avg: " + getAvgRuntime() + " min)";
     }
 
-    /* Methods */
+    /* METHODS */
 
     public void addEpisode(Episode newEpisode) {
         try {
@@ -97,7 +98,7 @@ public class Series {
 
     public void listAllEpisodes(int season) {
         System.out.println("=============================================================");
-        System.out.println(" " + getTitle() + " - Season " + season);
+        System.out.println(" " + getTitle() + " - Season " + season + " (" + getReleaseDate().format(DateTimeFormatter.ofPattern("dd LLLL yyyy")) + ")");
         System.out.println("=============================================================");
 
         for(int i = 0; i < episodeList.size(); i++) {

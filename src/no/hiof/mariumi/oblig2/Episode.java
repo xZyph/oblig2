@@ -1,7 +1,8 @@
 package no.hiof.mariumi.oblig2;
 
-/* Imports */
-import java.util.Random;
+/* IMPORTS */
+// import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Episode {
     private int episodeNo;
@@ -9,7 +10,7 @@ public class Episode {
     private String title;
     private int duration;
 
-    /* Constructors */
+    /* CONSTRUCTORS */
 
     public Episode() {
         setEpisodeNo(-1);
@@ -18,18 +19,22 @@ public class Episode {
         setDuration(4);
     }
 
+    // Changed from Random to ThreadLocalRandom
     public Episode(int seasonNo) {
         setEpisodeNo(1);
         setSeasonNo(seasonNo);
         setTitle("N/A");
-        setDuration(new Random().nextInt((30 - 20) + 1) + 20);
+        setDuration(ThreadLocalRandom.current().nextInt(20, 30 + 1));
+        // setDuration(new Random().nextInt(30 - 20 + 1) + 20);
     }
 
+    // Changed from Random to ThreadLocalRandom
     public Episode(int seasonNo, int episodeNo) {
         setEpisodeNo(episodeNo);
         setSeasonNo(seasonNo);
         setTitle("N/A");
-        setDuration(new Random().nextInt((30 - 20) + 1) + 20);
+        setDuration(ThreadLocalRandom.current().nextInt(20, 30 + 1));
+        // setDuration(new Random().nextInt(30 - 20 + 1) + 20);
     }
 
     public Episode(int episodeNo, int seasonNo, String title, int duration) {
@@ -39,7 +44,7 @@ public class Episode {
         setDuration(duration);
     }
 
-    /* Getters */
+    /* GETTERS */
 
     public int getEpisodeNo() {
         return episodeNo;
@@ -57,7 +62,7 @@ public class Episode {
         return duration;
     }
 
-    /* Setters */
+    /* SETTERS */
 
     public void setEpisodeNo(int episodeNo){
         try {
@@ -103,7 +108,7 @@ public class Episode {
         }
     }
 
-    /* Overrides */
+    /* OVERRIDES */
 
     @Override
     public String toString() {
@@ -113,4 +118,4 @@ public class Episode {
     }
 }
 
-    /* Methods */
+    /* METHODS */
