@@ -127,37 +127,13 @@ public class Series {
         return  totalRuntime;
     }
 
-    // "m" returns String minutes
-    // "h" returns String hours and minutes
-    public String getTotalRuntime(String mode) {
-        int totalRuntime = 0;
-
-        for(int i = 0; i < episodeList.size(); i++) {
-            totalRuntime += episodeList.get(i).getDuration();
-        }
-
-        switch(mode) {
-            case "m":
-                return Integer.toString(totalRuntime) + " min";
-
-            case "h":
-                int hours = totalRuntime / 60;
-                int minutes = totalRuntime % 60;
-
-                return hours + " h " + minutes + " min";
-
-            default:
-                return Integer.toString(totalRuntime);
-        }
-    }
-
     private void updateAvgRuntime() {
         avgRuntime = getTotalRuntime() / episodeList.size();
     }
 
-    public void createSeasons(int amountOfSeasons, int amountOfEpisodes, int startSeason) {
-        for(int s = startSeason; s < (amountOfSeasons + startSeason); s++) {
-            for (int e = 1; e < (amountOfEpisodes + 1); e++) {
+    public void createSeasons(int seasons, int episodes, int from) {
+        for(int s = from; s < (seasons + from); s++) {
+            for (int e = 1; e < (episodes + 1); e++) {
                 addEpisode(new Episode(s, e));
             }
         }
